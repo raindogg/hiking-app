@@ -9,6 +9,10 @@ class UsersController < ApplicationController
                         password_confirmation: params[:password_confirmation])
 
     flash[:success] = "Signed up!"
-    redirect_to '/'
+    redirect_to "/users/#{@user.id}"
+  end
+
+  def show
+    @user = User.find(current_user.id)
   end
 end
