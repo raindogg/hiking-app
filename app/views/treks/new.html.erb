@@ -1,0 +1,21 @@
+<h1>Add a trek:</h1>
+
+<%= form_tag '/treks', method: :post do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= label_tag :length %>
+    <%= text_field_tag :length %>
+  </div>
+  <div>
+    <%= label_tag(:true, "Make this trek public") %>
+    <%= radio_button_tag(:public, "true") %>
+    <%= label_tag(:false, "Make this trek private") %>
+    <%= radio_button_tag(:public, "false") %>
+  </div>
+  <div>
+    <%= submit_tag 'Add Trek' %>
+  </div>
+<% end %>

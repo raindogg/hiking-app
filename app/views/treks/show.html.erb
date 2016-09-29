@@ -1,0 +1,9 @@
+<h1><%= @trek.title %></h1>
+
+<h2>Starting point: <%= @trek.points.first.latitude %>, <%= @trek.points.first.longitude %></h2>
+<h2>Ending point: <%= @trek.points.last.latitude %>, <%= @trek.points.last.longitude %></h2>
+<h3>Length: <%= @trek.length %></h3>
+<br>
+<%= link_to "Edit this trek", "/treks/#{@trek.id}/edit" %>
+<br>
+<%= link_to "Remove this trek", "/treks/#{@trek.id}", method: :delete %>

@@ -1,0 +1,21 @@
+<h1>Edit this trek:</h1>
+
+<%= form_tag "/treks/#{@trek.id}", method: :patch do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @trek.title %>
+  </div>
+  <div>
+    <%= label_tag :length %>
+    <%= text_field_tag :length, @trek.length %>
+  </div>
+  <div>
+    <%= label_tag(:true, "Make this trek public") %>
+    <%= radio_button_tag(:public, "true") %>
+    <%= label_tag(:false, "Make this trek private") %>
+    <%= radio_button_tag(:public, "false") %>
+  </div>
+  <div>
+    <%= submit_tag "Update this trek" %>
+  </div>
+<% end %>

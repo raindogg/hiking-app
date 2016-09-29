@@ -1,1 +1,19 @@
-<h1>No treks yet :( </h1>
+<div class="container">
+<h1>All treks:</h1>
+<% if @treks %>
+<div class="container">
+  <div class="row">
+    <% @treks.each do |trek| %>
+      <div class="col-md-4">
+        <h2><%= link_to trek.title, "/treks/#{trek.id}" %></h2>
+        <h3>Start: <%= trek.points.first.latitude %>, <%= trek.points.first.longitude %></h3>
+        <h3>End: <%= trek.points.last.latitude %>, <%= trek.points.last.longitude  %></h3>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% else %>
+  <h1>No treks, buddy</h1>
+<% end %>
+</div>
