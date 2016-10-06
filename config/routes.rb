@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/treks' => 'treks#create'
   get '/treks/:id' => 'treks#show'
   get '/treks/:id/edit' => 'treks#edit'
+  patch '/treks/:id/image' => 'treks#image'
   patch '/treks/:id' => 'treks#update'
   delete '/treks/:id' => 'treks#destroy'
 

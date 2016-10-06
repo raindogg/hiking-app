@@ -5,3 +5,8 @@ body {
 .navbar {
   background-color: #429b07;
 }
+
+.index-item {
+  height: 300px;
+  width: 300px;
+}

@@ -1,6 +1,6 @@
 <h1>Edit this trek:</h1>
 
-<%= form_tag "/treks/#{@trek.id}", method: :patch do %>
+  <%= form_tag "/treks/#{@trek.id}", multipart: true, method: :patch do %>
   <div>
     <%= label_tag :title %>
     <%= text_field_tag :title, @trek.title %>
@@ -16,6 +16,11 @@
     <%= radio_button_tag(:public, "false") %>
   </div>
   <div>
-    <%= submit_tag "Update this trek" %>
+    <%= label_tag :image %>
+    <%= file_field_tag :image %>
   </div>
+    <div>
+       <%= submit_tag "Update this trek" %>
+        </div>
 <% end %>
+
