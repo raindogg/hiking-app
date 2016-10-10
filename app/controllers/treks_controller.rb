@@ -39,16 +39,11 @@ class TreksController < ApplicationController
   end
 
   def image
-    key = ENV['DIGITAL_GLOBE_KEY']
-
     @trek = Trek.find(params[:id])
-
-    # set a variable to hold all the points set from set_points method. 
-    # see if we can still use the image_from_url method - may not need to do 
-    # @trek.update, since image_from_url already sets itself to that. Probably
-    # need to call that method, then do @trek.save. 
-
+    call = @trek.generate_url
+    @trek.image_from_url(call)
     @trek.save
+    redirect_to "/treks/#{@trek.id}"
   end
 
   def destroy
