@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   patch '/treks/:id' => 'treks#update'
   delete '/treks/:id' => 'treks#destroy'
 
+  post '/points' => 'points#create'
+  
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show'
