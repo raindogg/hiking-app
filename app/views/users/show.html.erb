@@ -1,14 +1,35 @@
-<div class="container">
-  <h1><%= @user.name.titleize %>'s profile</h1>
-  <%= link_to "Edit your profile", "/users/#{@user.id}/edit" %>
-  <h2>Total treks: <%= @user.treks.count %></h2>
-    <div class="row">
-    <% @user.treks.each do |trek| %>
-      <div class="col-md-4">
-        <h3><%= link_to trek.title, "/treks/#{trek.id}" %></h3>
-        <%= image_tag trek.image.url, class: "index-item" %>
-        <br>
-      </div>
-    <% end %>
-  </div>
-</div>
+<section id="page-tree">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-5 col-sm-5">
+                  <h1><%= @user.name.titleize %>'s Treks</h1>
+              </div>
+            <div class="col-md-7 col-sm-7">
+                <ol class="breadcrumb pull-right hidden-xs">
+                    <li><%= @user.treks.count %> Treks</li>
+                    <li><%= @user.total_distance %> Total Miles</li>
+                </ol>
+            </div>
+          </div><!--row-->
+      </div><!--container-->
+</section><!--page-tree-->
+
+<section id="Portfolio-4col" class="padding-60">
+   <div id="grid">
+  <% @user.treks.each do |trek| %>
+
+    <div class="portfolio-item mix design col-xs-12 col-sm-3 portfolio-no-margin">
+        <a href="/treks/<%= trek.id %>">
+            <div class="image-sec">
+                <%= image_tag trek.image.url, class: "img-responsive" %>
+                <div class="image-overlay">
+                    <p><%= trek.title %>, <%= trek.length %> miles</p>
+                </div>
+            </div> <!--image-->
+        </a>
+    </div>
+  <% end %>
+</div><!--grid -->                           
+</section>
+<div class="clearfix"></div>
+

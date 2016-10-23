@@ -12,12 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap-theme
- *= require animate
- *= require bootstrap
- *= require docs
- *= require flexslider
+ *= require bootstrap.min
  *= require ionicons
- *= require ionicons.min
  *= require style
+ *= require animate
+ *= require flexslider
+
  */

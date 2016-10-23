@@ -1,18 +1,34 @@
-<div class="container">
-<h1>All treks:</h1>
-<% if @treks %>
-<div class="container">
-  <div class="row">
-    <% @treks.each do |trek| %>
-      <div class="col-md-4">
-        <h2><%= link_to trek.title, "/treks/#{trek.id}" %></h2>
-        <%= image_tag trek.image.url, class: "index-item" %>
-        <br>
-      </div>
-    <% end %>
-  </div>
-</div>
-<% else %>
-  <h1>No treks, buddy</h1>
-<% end %>
-</div>
+<br>
+<br>
+<section id="recent-work" class="padding-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center margin-btm40 wow animated bounceIn">
+            <br>
+            <br>
+                <h1>All treks</h1>
+            </div>
+            <% if @treks %>
+              <div id="grid" class="row">
+                <% @treks.each do |trek| %>
+                  <div class="portfolio-item mix seo col-xs-12 col-sm-4">
+                      <a href="/treks/<%= trek.id %>">
+                          
+                         <h2><%= link_to trek.title, "/treks/#{trek.id}" %></h2>
+                          <div class="image-sec">
+                              <%= image_tag trek.image.url, class: "img-responsive" %>
+                                <div class="image-overlay">
+                                    <p>Trekked by <%= trek.user.name %></p>
+                                </div>
+                          </div> <!--image-->
+                      </a>
+                  </div> <!--portfolio-item -->
+                <% end %>
+                <% else %>
+                  <h2>No treks, buddy.</h2>   
+                <% end %>                              
+                </div> <!--grid -->
+                </div><!--row-->
+            </div><!--col-md-12-->
+    </div><!--container end-->
+</section><!--recent work-->

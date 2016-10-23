@@ -1,16 +1,40 @@
-<h1>Log in</h1>
+  <section class="padding-60">
+  <div class="divied-60"></div>
+        <div class="container">
+     <div class="divied-40"></div>
+                    <div class="row">
+                        <div class="col-md-12 margin-btm20">
+                            <h3>Sign in</h3>
+                        </div>
+                        <div class="col-md-12 margin-btm20">
+                            <div class="form-box">
+                                <%= form_tag '/login', method: :post do %>
+                                    <div class="row">
+                                         <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <%= label_tag :email %>
+                                                <%= text_field_tag :email, nil, class:"form-control" %>
+                                            </div>
+                                        </div>
+                                         <div class="col-sm-6">
+                                            <div class="form-group">
+                                           <%= label_tag :password %>
+                                           <%= password_field_tag :password, nil, class:"form-control" %>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="col-sm-12 text-right">
+                                            <%= submit_tag 'Sign in', class:"btn btn-dark btn-lg" %>
+                                        </div>
+                                    </div>
+                                <% end %><!--leave comment form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
 
-<%= form_tag '/login', method: :post do %>
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div>
-    <%= submit_tag "Log in" %>
-  </div>
 
-<% end %>
+</section>
+

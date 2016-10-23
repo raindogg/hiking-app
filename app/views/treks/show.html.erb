@@ -1,12 +1,51 @@
-<h1><%= @trek.title %></h1>
-<h3>Length: <%= @trek.length %></h3>
-<%= image_tag @trek.image.url %>
+<section id="page-tree">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <h1><%= @trek.title %></h1>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <ol class="breadcrumb pull-right hidden-xs">
+                    <li><%= link_to "Edit this Trek", "/treks/#{@trek.id}/edit" %></li>
+                    <li><%= link_to "Delete this Trek", "/treks/#{@trek.id}/delete" %></li>
+                </ol>
+            </div>
+        </div><!--row-->
+    </div><!--container-->
+</section>
+<div class="divied-60"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="blog-items blog-img margin-btm40">
+                        <%= image_tag @trek.image.url, class: "img-responsive" %>
+                    
+                            </div>
+                                <h1>Description</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisl risus, porta sit amet dui eget, adipiscing ornare lacus. Nunc metus dolor, blandit sed vestibulum eget, volutpat ac sem.
+                                </p>
+                                <p>
+                                    Suspendisse mollis pellentesque viverra. Maecenas vitae lorem urna. Nullam aliquam justo vel lorem interdum consectetur. Vivamus et molestie tellus, nec pharetra nisi. Morbi malesuada feugiat tincidunt. Nullam sit amet tempus ante. Donec ac urna tristique, dapibus magna sed, elementum tellus. Proin nulla velit, accumsan sed velit id, ornare accumsan velit. Cras erat eros, adipiscing at consectetur porta, pharetra sed erat. Vestibulum pulvinar vulputate augue a tempus. Donec ac ullamcorper lorem.
+                                </p>
+                            </div>
+                  
+                              <div class="col-md-4 margin-btm20">
+                                <h3 class="sidebarbox-title">
+                                    Trekked by <%=link_to @trek.user.name, "/users/#{@trek.user.id}", class:"hover-color" %>
+                                </h3>
+                                <% if @trek.points %>
+                                <p>on <%= @trek.points.last.friendly_time %></p>
+                                <% end %>
+                                <div class="sidebar-box">
+                                  <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
+                                    <%= submit_tag "Generate Image", class: "btn-dark btn" %>
+                                  <% end %>
+                                </div>
 
-
-<br>
-<%= link_to "Generate image", "/treks/#{@trek.id}/image", method: :patch %>
-<br>
-<%= link_to "Edit this trek", "/treks/#{@trek.id}/edit" %>
-<br>
-<%= link_to "Remove this trek", "/treks/#{@trek.id}", method: :delete %>
-
+                                <h3 class="sidebarbox-title"><%= @trek.length %> miles</h3>
+                      
+                      
+                            </div><!--sidebar-->
+                        </div>
+                    </div>

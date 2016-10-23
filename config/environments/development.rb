@@ -55,6 +55,7 @@ Rails.application.configure do
   Paperclip.options[:command_path] = "/usr/local/bin/convert"
   config.paperclip_defaults = {
     storage: :s3,
+    source_file_options: {all: '-auto-orient' },
     s3_credentials: {
       bucket: ENV.fetch('BUCKET'),
       access_key_id: ENV.fetch('S3_ACCESS_KEY'),

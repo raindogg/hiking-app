@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/treks/:id/edit' => 'treks#edit'
   patch '/treks/:id/image' => 'treks#image'
   patch '/treks/:id' => 'treks#update'
-  delete '/treks/:id' => 'treks#destroy'
+  get '/treks/:id/delete' => 'treks#destroy'
 
   post '/points' => 'points#create'
   
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
 end
