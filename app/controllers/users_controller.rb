@@ -32,5 +32,6 @@ class UsersController < ApplicationController
                  email: params[:email])
 
     redirect_to "/users/#{@user.id}"
+    flash[:success] = "Profile updated"
   end
 end

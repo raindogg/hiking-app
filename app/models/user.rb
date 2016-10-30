@@ -9,6 +9,6 @@ class User < ApplicationRecord
         total += trek.length
       end
     end
-    total
+    (total / 1609.344).round(2)
   end
 end

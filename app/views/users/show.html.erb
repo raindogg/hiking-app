@@ -16,6 +16,7 @@
 
 <section id="Portfolio-4col" class="padding-60">
    <div id="grid">
+  <% if @user.treks.length != 0 %>
   <% @user.treks.each do |trek| %>
 
     <div class="portfolio-item mix design col-xs-12 col-sm-3 portfolio-no-margin">
@@ -28,6 +29,9 @@
             </div> <!--image-->
         </a>
     </div>
+  <% end %>
+  <% else %>
+  <h3>No treks. Take a hike!</h3>
   <% end %>
 </div><!--grid -->                           
 </section>

@@ -1,0 +1,1 @@
+json.array! @treks, partial: 'treks', as: :trek

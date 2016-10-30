@@ -1,7 +1,7 @@
 class Trek < ApplicationRecord
   belongs_to :user
   has_many :points
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "hiker.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def image_from_url(url)
@@ -28,5 +28,25 @@ class Trek < ApplicationRecord
     url
   end
 
+  def in_miles
+    if length 
+      (length / 1609.344).round(2)
+    else 
+      0
+    end
+  end
 
+  def set_location
+    latitude = points.first.latitude
+    longitude = points.first.longitude
+    key = ENV['GOOGLE_KEY']
+    url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=#{latitude},#{longitude}&key=#{key}"
+    response = Unirest.get(url).body
+    new_location = response["results"][1]["formatted_address"]
+    if new_location 
+      self.update(location: new_location)
+    else
+      self.update(location: "Unknown location")
+    end
+  end
 end

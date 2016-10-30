@@ -9,7 +9,7 @@ class TreksController < ApplicationController
   def create
     key = ENV['DIGITAL_GLOBE_KEY']
 
-    @trek = Trek.create(user_id: current_user.id,
+    @trek = Trek.create(user_id: params[:user_id],
                         title: params[:title],
                         length: params[:length],
                         public: params[:public])
@@ -29,11 +29,11 @@ class TreksController < ApplicationController
 
   def update
     @trek = Trek.find(params[:id])
-    @trek.update(user_id: current_user.id,
+    @trek.update(user_id: params[:user_id],
                  title: params[:title],
                  length: params[:length],
                  public: params[:public],
-                 image: params[:image])
+                 description: params[:description])
 
     redirect_to "/treks/#{@trek.id}"
   end
