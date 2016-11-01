@@ -1,7 +1,53 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create!([
+  {name: "Will", email: "wabray17@gmail.com", password: "password", password_confirmation: "password"},
+  {name: "joe", email: "joe@gmail.com", password: "password", password_confirmation: "password"},
+  {name: "Rick", email: "rick@gmail.com", password: "password", password_confirmation: "password"},
+  {name: "Ricky", email: "ricky@yahoo.com", password: "password", password_confirmation: "password"}
+])
+Trek.create!([
+  {user_id: 1, title: "City Trek", length: 5, public: true, image_file_name: "open-uri20161009-40892-1ydd728", image_content_type: "image/jpeg", image_file_size: 133001, image_updated_at: "2016-10-09 20:54:35", description: nil, location: "Chicago Loop, Chicago, IL, USA"},
+  {user_id: 1, title: "forceIt", length: 104, public: true, image_file_name: "open-uri20161027-49181-176fusi", image_content_type: "image/jpeg", image_file_size: 118005, image_updated_at: "2016-10-27 17:12:41", description: nil, location: "Cupertino, CA, USA"},
+  {user_id: 1, title: "API test - 2", length: 3, public: true, image_file_name: "open-uri20161009-42928-jlihsd", image_content_type: "image/jpeg", image_file_size: 77370, image_updated_at: "2016-10-09 21:50:14", description: "A lovely little trek. ", location: "Unionville, IN 47468, USA"},
+  {user_id: 1, title: "location 3", length: 24, public: true, image_file_name: nil, image_content_type: nil, image_file_size: nil, image_updated_at: nil, description: nil, location: "Cupertino, CA, USA"},
+  {user_id: 2, title: "Web Request Test", length: nil, public: true, image_file_name: "open-uri20161019-191-1qmrw2y", image_content_type: "image/jpeg", image_file_size: 36287, image_updated_at: "2016-10-20 01:15:39", description: nil, location: "Kaztal District, Kazakhstan"},
+  {user_id: 2, title: "API request 2", length: 5, public: true, image_file_name: "open-uri20161019-191-siakss", image_content_type: "image/jpeg", image_file_size: 118098, image_updated_at: "2016-10-20 01:18:32", description: nil, location: "Cupertino, CA, USA"},
+  {user_id: 3, title: "Test 2", length: nil, public: true, image_file_name: "open-uri20161020-4545-8hax5w", image_content_type: "image/jpeg", image_file_size: 117440, image_updated_at: "2016-10-20 12:52:48", description: nil, location: "Cupertino, CA, USA"},
+  {user_id: 4, title: "Neighborhood Walk", length: nil, public: true, image_file_name: "open-uri20161023-27156-1quscid", image_content_type: "image/jpeg", image_file_size: 117945, image_updated_at: "2016-10-23 18:34:27", description: nil, location: "Cupertino, CA, USA"},
+  {user_id: 4, title: "Demonstration", length: 3, public: true, image_file_name: "open-uri20161023-28430-52syhp", image_content_type: "image/jpeg", image_file_size: 117701, image_updated_at: "2016-10-23 19:05:00", description: nil, location: "Cupertino, CA, USA"}
+])
+Point.create!([
+  {trek_id: 1, start: true, end: false, latitude: "-87.63235", longitude: "41.8782"},
+  {trek_id: 1, start: false, end: true, latitude: "-87.624346", longitude: "41.878296"},
+  {trek_id: 1, start: false, end: false, latitude: "-87.624239", longitude: "41.875708"},
+  {trek_id: 1, start: false, end: false, latitude: "-87.631942", longitude: "41.875532"},
+  {trek_id: 3, start: true, end: false, latitude: "39.291555", longitude: "-86.46281"},
+  {trek_id: 3, start: false, end: false, latitude: "39.29324", longitude: "-86.461823"},
+  {trek_id: 3, start: false, end: false, latitude: "39.293681", longitude: "-86.458862"},
+  {trek_id: 3, start: false, end: false, latitude: "39.295375", longitude: "-86.460836"},
+  {trek_id: 3, start: false, end: true, latitude: "39.291655", longitude: "-86.462896"},
+  {trek_id: 5, start: true, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 6, start: false, end: false, latitude: "37.3303336", longitude: "-122.0282667"},
+  {trek_id: 6, start: false, end: false, latitude: "37.3301961", longitude: "-122.0254366"},
+  {trek_id: 6, start: false, end: false, latitude: "37.3302227", longitude: "-122.0268111"},
+  {trek_id: 6, start: false, end: false, latitude: "37.3303336", longitude: "-122.0282667"},
+  {trek_id: 6, start: false, end: false, latitude: "37.3302082", longitude: "-122.025183"},
+  {trek_id: 7, start: false, end: false, latitude: "37.3314259", longitude: "-122.0307277"},
+  {trek_id: 7, start: false, end: false, latitude: "37.3306724", longitude: "-122.0301438"},
+  {trek_id: 7, start: false, end: false, latitude: "37.3314259", longitude: "-122.0307277"},
+  {trek_id: 7, start: false, end: false, latitude: "37.3306724", longitude: "-122.0301438"},
+  {trek_id: 8, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 8, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 8, start: false, end: false, latitude: "37.3312801", longitude: "-122.0307377"},
+  {trek_id: 8, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 8, start: false, end: false, latitude: "37.3311778", longitude: "-122.0307229"},
+  {trek_id: 8, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 9, start: false, end: false, latitude: "37.3312801", longitude: "-122.0307377"},
+  {trek_id: 9, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 9, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 2, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 2, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 2, start: false, end: false, latitude: "37.3306978", longitude: "-122.0303554"},
+  {trek_id: 4, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 4, start: false, end: false, latitude: "37.3315035", longitude: "-122.030716"},
+  {trek_id: 4, start: false, end: false, latitude: "37.3312801", longitude: "-122.0307377"}
+])
