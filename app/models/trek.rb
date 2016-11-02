@@ -5,7 +5,8 @@ class Trek < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def image_from_url(url)
-    self.image = open(url)
+    # self.image = open(url)
+    self.update(image: open(url))
   end
 
   def set_points
