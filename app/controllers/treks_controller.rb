@@ -29,9 +29,7 @@ class TreksController < ApplicationController
 
   def update
     @trek = Trek.find(params[:id])
-    @trek.update(user_id: params[:user_id],
-                 title: params[:title],
-                 length: params[:length],
+    @trek.update(title: params[:title],
                  public: params[:public],
                  description: params[:description])
 

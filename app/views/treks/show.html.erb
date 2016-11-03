@@ -67,6 +67,16 @@
                           
 
                                 <h3 class="sidebarbox-title"><%= @trek.in_miles %> miles</h3>
+                                <h3 class="sidebarbox-title">Categories</h3>
+                                <% if !@trek.categories.length.zero? %>
+                                    <ul>
+                                        <% @trek.categories.each do |category| %>
+                                            <li><%= category.name %></li>
+                                        <% end %>    
+                                    </ul>
+                                <% else %>
+                                    <p>Uncategorized</p>    
+                                <% end %>
                       
                       
                             </div><!--sidebar-->
