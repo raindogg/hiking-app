@@ -97,6 +97,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
 
-  config.assets.js_compressor = Uglifier.new(mangle: false)
   config.active_record.dump_schema_after_migration = false
 end
