@@ -1195,8 +1195,9 @@ input[type="color"]:focus,
     height: 400px;
 }
 
-
-
+.zoom-select {
+    height: 25px;
+}
 
 
 

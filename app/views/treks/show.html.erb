@@ -61,8 +61,22 @@
                              
                                 <div class="sidebar-box">
                                   <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
+                                    <%= hidden_field_tag :zoom, "15" %>
                                     <%= submit_tag "Generate Image", class: "btn-dark btn" %>
                                   <% end %>
+                                  <p>Or</p>
+                                    <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
+                                      <%= select_tag(:zoom, options_for_select([
+                                            ["Standard", 15],
+                                            ["Really far", 13],
+                                            ["Sort of far", 14],
+                                            ["Close", 16],
+                                            ["Really close", 17]
+                                        ])) %>
+                                    <div>
+                                      <%= submit_tag "Adjust zoom level", class: "btn-dark btn" %>
+                                    <% end %>
+                                    </div>
                                 </div>
                           
 

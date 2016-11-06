@@ -38,10 +38,14 @@ class TreksController < ApplicationController
 
   def image
     @trek = Trek.find(params[:id])
-    call = @trek.generate_url
+    call = @trek.generate_url(params[:zoom])
     @trek.image_from_url(call)
     @trek.save
     redirect_to "/treks/#{@trek.id}"
+  end
+
+  def imageupdate
+    @trek = Trek.find(params[:id])
   end
 
   def destroy
