@@ -26,7 +26,7 @@
                     
                             </div>
                                 <h1>Description</h1>
-                                <% if @trek.description %>
+                                <% if @trek.description && @trek.description.length != 0 %>
                                 <p>
                                     <%= @trek.description %>
                                 </p>
