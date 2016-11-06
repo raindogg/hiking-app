@@ -6,6 +6,7 @@
                 <% if @trek.location %>
                 <h3><%= @trek.location %></h3>
                 <% end %>
+                <p id="trek_id"><%= @trek.id %></p>
             </div>
             <div class="col-md-7 col-sm-7">
                 <ol class="breadcrumb pull-right hidden-xs">
@@ -64,8 +65,14 @@
                                     <%= hidden_field_tag :zoom, "15" %>
                                     <%= submit_tag "Generate Image", class: "btn-dark btn" %>
                                   <% end %>
+                                  <br>
                                   <p>Or</p>
                                     <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
+                                    <div>
+                                      <%= submit_tag "Adjust zoom level", class: "btn-theme btn" %>
+                                      </div>
+                                      <div>
+                                      <br>
                                       <%= select_tag(:zoom, options_for_select([
                                             ["Standard", 15],
                                             ["Really far", 13],
@@ -73,8 +80,6 @@
                                             ["Close", 16],
                                             ["Really close", 17]
                                         ])) %>
-                                    <div>
-                                      <%= submit_tag "Adjust zoom level", class: "btn-dark btn" %>
                                     <% end %>
                                     </div>
                                 </div>
@@ -83,14 +88,20 @@
                                 <h3 class="sidebarbox-title"><%= @trek.in_miles %> miles</h3>
                                 <h3 class="sidebarbox-title">Categories</h3>
                                 <% if !@trek.categories.length.zero? %>
-                                    <ul>
+                                    <div id="category-list">
+                                    <ul">
                                         <% @trek.categories.each do |category| %>
                                             <li><%= category.name %></li>
                                         <% end %>    
                                     </ul>
                                 <% else %>
-                                    <p>Uncategorized</p>    
+                                        <p id="placeholder">Uncategorized</p> 
                                 <% end %>
+                                    </div>
+                                    <br>
+                                        <input type="text" id="key" >
+                                        <br>
+                                        <button class="btn-primary btn" id="category-button">Add Category</button>
                       
                       
                             </div><!--sidebar-->

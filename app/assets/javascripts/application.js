@@ -18,5 +18,6 @@
 //= require jquery.mixitup.min
 //= require wow.min
 //= require app
+//= require category
 //= require_tree .
 

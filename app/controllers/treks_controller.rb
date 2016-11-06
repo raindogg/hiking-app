@@ -7,8 +7,6 @@ class TreksController < ApplicationController
   end
 
   def create
-    key = ENV['DIGITAL_GLOBE_KEY']
-
     @trek = Trek.create(user_id: params[:user_id],
                         title: params[:title],
                         length: params[:length],
