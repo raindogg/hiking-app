@@ -6,7 +6,9 @@
             <div class="col-md-12 text-center margin-btm40 wow animated bounceIn">
             <br>
             <br>
-                <h1>All treks</h1>
+                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="<p><a href='/treks?sort_order=asc'>See oldest to newest</a></p><p><a href='treks?sort_attribute=length'>Sort treks from shortest to longest</a></p><p><a href='/treks?sort_length=desc'>Sort treks from longest to shortest</a></p>" data-html="true">
+                  <h1>All Treks</h1>
+                </button>
             </div>
             <% if @treks %>
               <div id="grid" class="row">

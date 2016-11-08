@@ -1,6 +1,19 @@
 class TreksController < ApplicationController
   def index
-    @treks = Trek.where(public: true)
+    @page_title = "Wandr - Take a Hike"
+    sort_order = params[:sort_order]
+    sort_attribute = params[:sort_attribute]
+    sort_length = params[:sort_length]
+
+    @treks = Trek.where(public: true).order(created_at: :desc)
+
+    if sort_order
+      @treks = Trek.where(public: true).order(:created_at)
+    elsif sort_attribute
+      @treks = Trek.where(public: true).order(:length)
+    elsif sort_length
+      @treks = Trek.where(public: true).order(length: :desc)
+    end
   end
 
   def new
@@ -17,12 +30,14 @@ class TreksController < ApplicationController
 
   def show
     @trek = Trek.find(params[:id])
+    @page_title = @trek.title
     key = ENV['DIGITAL_GLOBE_KEY']
     @map = "https://api.mapbox.com/v4/digitalglobe.nal0g75k/geojson(%7B%22type%22%3A%22Feature%22%2C%22properties%22%3A%7B%22stroke-width%22%3A6%2C%22stroke%22%3A%22%23ff4444%22%2C%22stroke-opacity%22%3A0.8%7D%2C%22geometry%22%3A%7B%22type%22%3A%22LineString%22%2C%22coordinates%22%3A%5B%5B-86.473346%2C39.321728%5D%2C%5B-86.476736%2C39.323006%5D%5D%7D%7D)/-86.476736,39.323056,16/500x300.jpg90?access_token=#{key}"
   end
 
   def edit
     @trek = Trek.find(params[:id])
+    @page_title = "Edit #{@trek.title}"
   end
 
   def update

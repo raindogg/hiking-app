@@ -1,4 +1,5 @@
 $(document).ready( function() {
+
   var category = "";
   var categoryId = "";
   $("#category-button").on("click", function() {

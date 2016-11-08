@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -40,9 +41,6 @@
                            <% end %>  
                       </ul>
                   </li>
-                  <% if current_user %>
-                    <li><%= link_to "Add Trek", "/treks/new" %></li>
-                  <% end %>
               </ul>
           </div><!--/.nav-collapse -->
       </div><!--/.container-->

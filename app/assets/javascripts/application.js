@@ -19,5 +19,6 @@
 //= require wow.min
 //= require app
 //= require category
+//= require sort
 //= require_tree .
 

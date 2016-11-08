@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    @page_title = "Sign up!"
   end
 
   def create
@@ -20,10 +21,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
+    @page_title = "#{@user.name}'s profile"
   end
 
   def edit
     @user = User.find(params[:id])
+    @page_title = "Edit your profile"
   end
 
   def update
