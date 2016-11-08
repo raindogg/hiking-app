@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   post '/categories' => 'categories#create'
 
   post '/trek_categories' => 'trek_categories#create'
+  delete '/trek_categories/:id' => 'trek_categories#destroy'
 end

@@ -1203,5 +1203,8 @@ input[type="color"]:focus,
     display: none;
 }
 
+.hidden_cat {
+    display: none;
+}
 
 
