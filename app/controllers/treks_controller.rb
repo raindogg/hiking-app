@@ -4,8 +4,10 @@ class TreksController < ApplicationController
     sort_order = params[:sort_order]
     sort_attribute = params[:sort_attribute]
     sort_length = params[:sort_length]
+    search_term = params[:search_term]
 
     @treks = Trek.where(public: true).order(created_at: :desc)
+    @list_title = "All Treks"
 
     if sort_order
       @treks = Trek.where(public: true).order(:created_at)
@@ -13,6 +15,12 @@ class TreksController < ApplicationController
       @treks = Trek.where(public: true).order(:length)
     elsif sort_length
       @treks = Trek.where(public: true).order(length: :desc)
+    end
+
+    if search_term
+      fuzzy_search_term = "%#{search_term}%"
+      @treks = @treks.where("title ILIKE ? OR location ILIKE ?", fuzzy_search_term, fuzzy_search_term)
+      @list_title = "All treks matching #{search_term}"
     end
   end
 

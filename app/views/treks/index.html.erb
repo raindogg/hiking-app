@@ -3,13 +3,23 @@
 <section id="recent-work" class="padding-60">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center margin-btm40 wow animated bounceIn">
+            <div class="col-md-12 text-center margin-btm20 wow animated bounceIn">
             <br>
             <br>
                 <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="<p><a href='/treks?sort_order=asc'>See oldest to newest</a></p><p><a href='treks?sort_attribute=length'>Sort treks from shortest to longest</a></p><p><a href='/treks?sort_length=desc'>Sort treks from longest to shortest</a></p>" data-html="true">
-                  <h1>All Treks</h1>
+                  <h1><%= @list_title %></h1>
                 </button>
             </div>
+            <div class="col-md-12 text-center margin-btm20">
+                <button type="button" id="reveal-search" class="btn btn-primary">Looking for something specific?</button>
+            </div>
+            <%= form_tag "/treks", method: :get do %>
+              <div class="col-md-12 text-center margin-btm20", id="search-area">
+                <%= text_field_tag :search_term, nil, placeholder: 'Search by name, location, or category', class: 'form-control' %>
+                <%= submit_tag "Search", class: 'btn-info btn' %>
+              </div>
+            <% end %>
+
             <% if @treks %>
               <div id="grid" class="row">
                 <% @treks.each do |trek| %>
