@@ -1207,7 +1207,13 @@ input[type="color"]:focus,
     display: none;
 }
 
+.index-item {
+    box-shadow: 10px 20px 30px grey;
+}
 
+.list-title {
+    box-shadow: 10px 10px 20px grey;
+}
 
 
 

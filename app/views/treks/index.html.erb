@@ -6,7 +6,7 @@
             <div class="col-md-12 text-center margin-btm20 wow animated bounceIn">
             <br>
             <br>
-                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="<p><a href='/treks?sort_order=asc'>See oldest to newest</a></p><p><a href='treks?sort_attribute=length'>Sort treks from shortest to longest</a></p><p><a href='/treks?sort_length=desc'>Sort treks from longest to shortest</a></p>" data-html="true">
+                <button type="button" class="btn btn-default list-title" data-container="body" data-toggle="popover" data-placement="right" data-content="<p><a href='/treks?sort_order=asc'>See oldest to newest</a></p><p><a href='treks?sort_attribute=length'>Sort treks from shortest to longest</a></p><p><a href='/treks?sort_length=desc'>Sort treks from longest to shortest</a></p>" data-html="true">
                   <h1><%= @list_title %></h1>
                 </button>
             </div>
@@ -33,7 +33,7 @@
                           
                          <h2><%= link_to trek.title, "/treks/#{trek.id}" %></h2>
                           <div class="image-sec"><a href="/treks/<%= trek.id %>">
-                              <%= image_tag trek.image.url, class: "img-responsive" %>
+                              <%= image_tag trek.image.url, class: "img-responsive index-item" %>
                                 <div class="image-overlay">
                                     <p><%= trek.location %>, Trekked by <%= trek.user.name %></p>
                                 </div>
