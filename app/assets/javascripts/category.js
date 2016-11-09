@@ -44,7 +44,7 @@ $(document).ready( function() {
     $.ajax({
       type: "DELETE",
       contentType: "application/json; charset=utf-8",
-      url: "/trek_categories/" + selector, 
+      url: "/trek_categories/" + selector,
       data: JSON.stringify({id: selector}),
       dataType: "json",
       success: function (result) {

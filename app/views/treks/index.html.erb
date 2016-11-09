@@ -15,8 +15,13 @@
             </div>
             <%= form_tag "/treks", method: :get do %>
               <div class="col-md-12 text-center margin-btm20", id="search-area">
-                <%= text_field_tag :search_term, nil, placeholder: 'Search by name, location, or category', class: 'form-control' %>
+                <%= text_field_tag :search_term, nil, placeholder: 'Search by name or location', class: 'form-control' %>
                 <%= submit_tag "Search", class: 'btn-info btn' %>
+                <br>
+                <p>Or, filter by category:</p>
+                <%  @categories.each do |category| %>
+                  <a href="treks?category=<%= category %>" class="btn-default btn"><%= category %> </a>
+                <% end %>
               </div>
             <% end %>
 

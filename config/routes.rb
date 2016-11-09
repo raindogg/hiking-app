@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   post '/categories' => 'categories#create'
+  get '/categories' => 'categories#destroy'
 
   post '/trek_categories' => 'trek_categories#create'
   delete '/trek_categories/:id' => 'trek_categories#destroy'

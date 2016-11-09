@@ -4,7 +4,7 @@ $(document).ready( function() {
     $('[data-toggle="popover"]').popover();
   });
 
-  $("#reveal-search").on("click", function () {
+  $("#reveal-search").on("click", function() {
     $("#reveal-search").hide();
     $("#search-area").show();
   });

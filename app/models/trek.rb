@@ -1,8 +1,8 @@
 class Trek < ApplicationRecord
   belongs_to :user
   has_many :points
-  has_many :trek_categories
-  has_many :categories, through: :trek_categories
+  has_many :trek_categories, dependent: :delete_all
+  has_many :categories, through: :trek_categories, dependent: :delete_all
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "hiker.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 

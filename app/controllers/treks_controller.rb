@@ -5,16 +5,29 @@ class TreksController < ApplicationController
     sort_attribute = params[:sort_attribute]
     sort_length = params[:sort_length]
     search_term = params[:search_term]
+    search_category = params[:category]
 
     @treks = Trek.where(public: true).order(created_at: :desc)
     @list_title = "All Treks"
+    @categories = Category.unique_categories
 
     if sort_order
       @treks = Trek.where(public: true).order(:created_at)
+      @list_title = "All Treks, Oldest to Newest"
     elsif sort_attribute
       @treks = Trek.where(public: true).order(:length)
+      @list_title = "All treks, Shortest to Longest"
     elsif sort_length
       @treks = Trek.where(public: true).order(length: :desc)
+      @list_title = "All Treks, Longest to Shortest"
+    elsif search_category
+      categories = Category.where(name: search_category)
+      @treks = []
+      categories.each do |category|
+        @treks << category.treks.all
+      end
+      @treks.flatten!
+      @list_title = "All #{search_category} Treks"
     end
 
     if search_term
@@ -22,6 +35,8 @@ class TreksController < ApplicationController
       @treks = @treks.where("title ILIKE ? OR location ILIKE ?", fuzzy_search_term, fuzzy_search_term)
       @list_title = "All treks matching #{search_term}"
     end
+
+    
   end
 
   def new
@@ -71,6 +86,9 @@ class TreksController < ApplicationController
 
   def destroy
     @trek = Trek.find(params[:id])
+    # @trek.categories.each do |category|
+
+    # end
 
     @trek.destroy
     flash[:warning] = "Trek removed. Take a hike!"
