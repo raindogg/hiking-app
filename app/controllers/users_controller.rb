@@ -37,4 +37,8 @@ class UsersController < ApplicationController
     redirect_to "/users/#{@user.id}"
     flash[:success] = "Profile updated"
   end
+
+  def remote
+    @user = User.find_by(email: params[:email])
+  end
 end

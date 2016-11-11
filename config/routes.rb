@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
   delete '/users' => 'users#destroy'
+  post '/users/remote' => 'users#remote' 
+
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
