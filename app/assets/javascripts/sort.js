@@ -8,4 +8,9 @@ $(document).ready( function() {
     $("#reveal-search").hide();
     $("#search-area").show();
   });
+
+  $("#collapse").on("click", function() {
+    $("#reveal-search").show();
+    $("#search-area").hide();
+  });
 });

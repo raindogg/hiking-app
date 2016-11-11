@@ -20,8 +20,11 @@
                 <br>
                 <p>Or, filter by category:</p>
                 <%  @categories.each do |category| %>
-                  <a href="treks?category=<%= category %>" class="btn-default btn"><%= category %> </a>
+                  <a href="treks?category=<%= category %>" class="btn-default btn"><%= category %></a>
                 <% end %>
+                  <br>
+                  <br>
+                <p id="collapse" class="btn-danger btn"><span class="glyphicon glyphicon-menu-up" aria-hidden="true">Collapse</span></p>
               </div>
             <% end %>
 
