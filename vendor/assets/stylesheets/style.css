@@ -1215,6 +1215,20 @@ input[type="color"]:focus,
     box-shadow: 10px 10px 20px grey;
 }
 
+.small-image {
+    height: 50px;
+    width: 50px;
+}
+
+.medium-image {
+    height: 200px;
+    width: 200px;
+}
+
+.nav-image {
+    position: relative;
+    top: 25px;
+}
 
 
 

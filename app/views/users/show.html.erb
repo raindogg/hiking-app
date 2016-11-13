@@ -2,7 +2,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-5 col-sm-5">
-                  <h1><%= @user.name.titleize %>'s Treks</h1>
+                  <h1><span data-container="body" data-toggle="popover" data-placement="right" data-content="<a href='/users/<%= @user.id %>/image'>Edit profile picture</a>" data-html="true"><%= image_tag @user.avatar.url(:thumb), class: "small-image" %></span><%= @user.name.titleize %>'s Treks</h1>
               </div>
             <div class="col-md-7 col-sm-7">
                 <ol class="breadcrumb pull-right hidden-xs">

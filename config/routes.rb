@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show'
   get '/users/:id/edit' => 'users#edit'
+  get '/users/:id/image' => 'users#image'
+  patch '/users/:id/image' => 'users#updateimage'
   patch '/users/:id' => 'users#update'
   delete '/users' => 'users#destroy'
   post '/users/remote' => 'users#remote' 

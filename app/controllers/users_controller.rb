@@ -41,4 +41,14 @@ class UsersController < ApplicationController
   def remote
     @user = User.find_by(email: params[:email])
   end
+
+  def image
+    @user = User.find(params[:id])
+  end
+
+  def updateimage
+    @user = User.find(params[:id])
+    @user.update(avatar: params[:avatar])
+    redirect_to "/users/#{@user.id}"
+  end
 end

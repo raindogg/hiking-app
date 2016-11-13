@@ -19,15 +19,14 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <% if current_user %>
                 <a class="navbar-brand" href="/">Wandr</a>
-              <% else %>
-                <a class="navbar-brand" href="/"><%= image_tag "logo-white.png", class: "img=responsive" %></a>
-              <% end %>
           </div>
           <div class="navbar-collapse collapse">
 
               <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+              <li><%= image_tag current_user.avatar.url, class: "small-image nav-image" %></li>
+              <% end %>
                   <li class="dropdown">
                   <a class="dropdown-toggle js-activated" data-toggle="dropdown">Profile</a>
                       <ul class="dropdown-menu">
