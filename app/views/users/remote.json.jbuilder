@@ -1,1 +1,1 @@
-json.id @user.id
+json.id @user.id.to_s
