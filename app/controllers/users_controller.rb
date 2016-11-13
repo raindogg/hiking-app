@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def updateimage
     @user = User.find(params[:id])
-    @user.update(avatar: params[:avatar])
+    @user.update!(avatar: params[:avatar])
     redirect_to "/users/#{@user.id}"
   end
 end
