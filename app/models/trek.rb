@@ -45,7 +45,7 @@ class Trek < ApplicationRecord
     key = ENV['GOOGLE_KEY']
     url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=#{latitude},#{longitude}&key=#{key}"
     response = Unirest.get(url).body
-    new_location = response["results"][0]["address_components"][2]["long_name"]
+    new_location = response["results"][1]["formatted_address"]
     if new_location 
       self.update(location: new_location)
     else
