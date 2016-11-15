@@ -4,7 +4,7 @@
             <div class="col-md-5 col-sm-5">
                 <h1><%= @trek.title %></h1>
                 <% if @trek.location %>
-                <h3><%= @trek.location %></h3>
+                    <h3><%= @trek.location %></h3>
                 <% end %>
                 <p id="trek_id"><%= @trek.id %></p>
             </div>
@@ -18,92 +18,84 @@
     </div><!--container-->
 </section>
 <div class="divied-60"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="blog-items blog-img margin-btm40">
-                        <%= image_tag @trek.image.url, class: "img-responsive index-item" %>
-                    
-                            </div>
-                                <h1>Description</h1>
-                                <% if @trek.description && @trek.description.length != 0 %>
-                                <p>
-                                    <%= @trek.description %>
-                                </p>
-                                <% else %>
-                                <p>
-                                   No description available. Add one? 
-                                </p>
-                                <%= form_tag "/treks/#{@trek.id}", method: :patch do %>
-                                <div class="form-group">
-                                    <% label_tag :description %>
-                                    <%= text_area_tag(:description, nil, size: "60x6") %>
-                                </div>
-                                <div>
-                                    <%= hidden_field_tag :user_id, "#{@trek.user_id}" %>
-                                    <%= hidden_field_tag :title, "#{@trek.title}" %>
-                                    <%= hidden_field_tag :length, "#{@trek.length}" %>
-                                    <%= hidden_field_tag :public, "#{@trek.public}" %>
-                                </div>
-                                <div class="form-group">
-                                    <%= submit_tag "Add description", class: "btn btn-dark btn-lg" %>
-                                </div>
-                                <% end %>
-                                <% end %>
-                            </div>
-                  
-                              <div class="col-md-4 margin-btm20">
-                                <h3 class="sidebarbox-title">
-                                    Trekked by <%=link_to @trek.user.name, "/users/#{@trek.user.id}", class:"hover-color" %>
-                                </h3>
-                                <% if @trek.points.length != 0 %>
-                                <p>on <%= @trek.points.last.friendly_time %></p>
-                                <% end %>
-                             
-                                <div class="sidebar-box">
-                                  <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
-                                    <%= hidden_field_tag :zoom, "15" %>
-                                    <%= submit_tag "Generate Image", class: "btn-dark btn" %>
-                                  <% end %>
-                                  <br>
-                                  <p>Or</p>
-                                    <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
-                                    <div>
-                                      <%= submit_tag "Adjust zoom level", class: "btn-theme btn" %>
-                                      </div>
-                                      <div>
-                                      <br>
-                                      <%= select_tag(:zoom, options_for_select([
-                                            ["Standard", 15],
-                                            ["Really far", 13],
-                                            ["Sort of far", 14],
-                                            ["Close", 16],
-                                            ["Really close", 17]
-                                        ])) %>
-                                    <% end %>
-                                    </div>
-                                </div>
-                          
-
-                                <h3 class="sidebarbox-title"><%= @trek.in_miles %> miles</h3>
-                                <h3 class="sidebarbox-title">Categories</h3>
-                                    <div id="category-list">
-                                <% if !@trek.categories.length.zero? %>
-                                    <ul>
-                                        <% @trek.categories.each do |category| %>
-                                            <li><%= category.name %></li>
-                                        <% end %>    
-                                    </ul>
-                                <% else %>
-                                        <p id="placeholder">Uncategorized</p> 
-                                <% end %>
-                                    </div>
-                                    <br>
-                                        <input type="text" id="key" >
-                                        <br>
-                                        <button class="btn-primary btn" id="category-button">Add Category</button>
-                      
-                      
-                            </div><!--sidebar-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-items blog-img margin-btm40">
+                    <%= image_tag @trek.image.url, class: "img-responsive index-item" %>
+                </div>
+                <h1>Description</h1>
+                <% if @trek.description && @trek.description.length != 0 %>
+                    <p>
+                        <%= @trek.description %>
+                    </p>
+                <% else %>
+                    <p>No description available. Add one?</p>
+                    <%= form_tag "/treks/#{@trek.id}", method: :patch do %>
+                        <div class="form-group">
+                            <% label_tag :description %>
+                            <%= text_area_tag(:description, nil, size: "60x6") %>
                         </div>
-                    </div>
+                        <div>
+                            <%= hidden_field_tag :user_id, "#{@trek.user_id}" %>
+                            <%= hidden_field_tag :title, "#{@trek.title}" %>
+                            <%= hidden_field_tag :length, "#{@trek.length}" %>
+                            <%= hidden_field_tag :public, "#{@trek.public}" %>
+                        </div>
+                            <div class="form-group">
+                                <%= submit_tag "Add description", class: "btn btn-dark btn-lg" %>
+                            </div>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col-md-4 margin-btm20">
+                <h3 class="sidebarbox-title">
+                    Trekked by <%=link_to @trek.user.name, "/users/#{@trek.user.id}", class:"hover-color" %>
+                </h3>
+                <% if @trek.points.length != 0 %>
+                    <p>on <%= @trek.points.last.friendly_time %></p>
+                <% end %>
+                <div class="sidebar-box">
+                    <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
+                        <%= hidden_field_tag :zoom, "15" %>
+                        <%= submit_tag "Generate Image", class: "btn-dark btn" %>
+                    <% end %>
+                    <br>
+                    <p>Or</p>
+                    <%= form_tag "/treks/#{@trek.id}/image", method: :patch do %>
+                        <div>
+                            <%= submit_tag "Adjust zoom level", class: "btn-theme btn" %>
+                        </div>
+                        <div>
+                            <br>
+                            <%= select_tag(:zoom, options_for_select([
+                                  ["Standard", 15],
+                                  ["Really far", 13],
+                                  ["Sort of far", 14],
+                                  ["Close", 16],
+                                  ["Really close", 17]
+                              ])) %>
+                    <% end %>
+                        </div>
+                </div>
+                <h3 class="sidebarbox-title"><%= @trek.in_miles %> miles</h3>
+                <h3 class="sidebarbox-title">Categories</h3>
+                <div id="category-list">
+                    <% if !@trek.categories.length.zero? %>
+                        <ul>
+                            <% @trek.categories.each do |category| %>
+                                <li><%= category.name %></li>
+                            <% end %>    
+                        </ul>
+                    <% else %>
+                        <p id="placeholder">Uncategorized</p> 
+                    <% end %>
+                </div>
+                <br>
+                <input type="text" id="key" >
+                <br>
+                <button class="btn-primary btn" id="category-button">Add Category</button>
+            </div><!--sidebar-->
+        </div>
+    </div>
+</div>

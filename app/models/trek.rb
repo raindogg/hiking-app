@@ -7,7 +7,6 @@ class Trek < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def image_from_url(url)
-    # self.image = open(url)
     self.update(image: open(url))
   end
 
@@ -15,7 +14,7 @@ class Trek < ApplicationRecord
     # this is kind of annoying - digital globe/geojson uses it in longitude/latitude format, rather than lat/lon. 
     point_coordinates = []
     points.each do |point|
-      point_coordinates << [point.longitude.to_f,point.latitude.to_f]
+      point_coordinates << [point.longitude.to_f, point.latitude.to_f]
     end
     point_coordinates
   end

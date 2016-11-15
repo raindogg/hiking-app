@@ -1,54 +1,50 @@
 <br>
 <br>
 <section id="recent-work" class="padding-60">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center margin-btm20 wow animated bounceIn">
-            <br>
-            <br>
-                <button type="button" class="btn btn-default list-title" data-container="body" data-toggle="popover" data-placement="right" data-content="<p><a href='/treks?sort_order=asc'>See oldest to newest</a></p><p><a href='treks?sort_attribute=length'>Sort treks from shortest to longest</a></p><p><a href='/treks?sort_length=desc'>Sort treks from longest to shortest</a></p>" data-html="true">
-                  <h1><%= @list_title %></h1>
-                </button>
-            </div>
-            <div class="col-md-12 text-center margin-btm20">
-                <button type="button" id="reveal-search" class="btn btn-primary">Looking for something specific?</button>
-            </div>
-            <%= form_tag "/treks", method: :get do %>
-              <div class="col-md-12 text-center margin-btm20", id="search-area">
-                <%= text_field_tag :search_term, nil, placeholder: 'Search by name or location', class: 'form-control' %>
-                <%= submit_tag "Search", class: 'btn-info btn' %>
-                <br>
-                <p>Or, filter by category:</p>
-                <%  @categories.each do |category| %>
-                  <a href="treks?category=<%= category %>" class="btn-default btn"><%= category %></a>
-                <% end %>
-                  <br>
-                  <br>
-                <p id="collapse" class="btn-danger btn">Collapse</p>
-              </div>
-            <% end %>
-
-            <% if @treks %>
-              <div id="grid" class="row">
-                <% @treks.each do |trek| %>
-                  <div class="portfolio-item mix seo col-xs-12 col-sm-4">
-                      <a href="/treks/<%= trek.id %>">
-                          
-                         <h2><%= link_to trek.title, "/treks/#{trek.id}" %></h2>
-                          <div class="image-sec"><a href="/treks/<%= trek.id %>">
-                              <%= image_tag trek.image.url, class: "img-responsive index-item" %>
-                                <div class="image-overlay">
-                                    <p><%= trek.location %>, Trekked by <%= trek.user.name %></p>
-                                </div>
-                          </a></div> <!--image-->
-                      </a>
-                  </div> <!--portfolio-item -->
-                <% end %>
-                <% else %>
-                  <h2>No treks, buddy.</h2>   
-                <% end %>                              
-                </div> <!--grid -->
-                </div><!--row-->
-            </div><!--col-md-12-->
-    </div><!--container end-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center margin-btm20 wow animated bounceIn">
+        <br>
+        <br>
+        <button type="button" class="btn btn-default list-title" data-container="body" data-toggle="popover" data-placement="right" data-content="<p><a href='/treks?sort_order=asc'>See oldest to newest</a></p><p><a href='treks?sort_attribute=length'>Sort treks from shortest to longest</a></p><p><a href='/treks?sort_length=desc'>Sort treks from longest to shortest</a></p>" data-html="true">
+          <h1><%= @list_title %></h1>
+        </button>
+      </div>
+      <div class="col-md-12 text-center margin-btm20">
+        <button type="button" id="reveal-search" class="btn btn-primary">Looking for something specific?</button>
+      </div>
+      <%= form_tag "/treks", method: :get do %>
+        <div class="col-md-12 text-center margin-btm20", id="search-area">
+          <%= text_field_tag :search_term, nil, placeholder: 'Search by name or location', class: 'form-control' %>
+          <%= submit_tag "Search", class: 'btn-info btn' %>
+          <br>
+          <p>Or, filter by category:</p>
+          <%  @categories.each do |category| %>
+            <a href="treks?category=<%= category %>" class="btn-default btn"><%= category %></a>
+          <% end %>
+          <br>
+          <br>
+          <p id="collapse" class="btn-danger btn">Collapse</p>
+        </div>
+      <% end %>
+      <% if @treks %>
+        <div id="grid" class="row">
+          <% @treks.each do |trek| %>
+            <div class="portfolio-item mix seo col-xs-12 col-sm-4">
+              <a href="/treks/<%= trek.id %>">
+              <h2><%= link_to trek.title, "/treks/#{trek.id}" %></h2>
+              <div class="image-sec"><a href="/treks/<%= trek.id %>">
+                <%= image_tag trek.image.url, class: "img-responsive index-item" %>
+                  <div class="image-overlay">
+                    <p><%= trek.location %>, Trekked by <%= trek.user.name %></p>
+                  </div></a>
+              </div></a>
+            </div> <!--portfolio-item -->
+          <% end %>
+      <% else %>
+        <h2>No treks, buddy.</h2>   
+      <% end %>                              
+        </div> <!--grid -->
+    </div><!--row-->
+  </div><!--container end-->
 </section><!--recent work-->

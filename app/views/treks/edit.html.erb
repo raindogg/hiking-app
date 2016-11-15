@@ -1,68 +1,62 @@
-  <section class="padding-60">
+<section class="padding-60">
   <div class="divied-60"></div>
-        <div class="container">
-     <div class="divied-40"></div>
-                    <div class="row">
-                        <div class="col-md-12 margin-btm20">
-                            <h3>Edit trek details</h3>
-                        </div>
-                        <div class="col-md-12 margin-btm20">
-                            <div class="form-box">
-                                <%= form_tag "/treks/#{@trek.id}", method: :patch do %>
-                                    <div class="row">
-                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                               <%= label_tag :title %>
-                                               <%= text_field_tag :title, @trek.title, class:"form-control" %>
-                                            </div>
-                                        </div>
-                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                               <%= label_tag :description %>
-                                               <% if @trek.description %>
-                                                <%= text_area_tag(:description, @trek.description, size: "60x6") %>
-                                               <% else %>
-                                                <%= text_area_tag(:description, nil, size: "60x6") %>
-                                               <% end %>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                              <div class="form-group">
-                                                <%= label_tag(:false, "Make this trek private") %>
-                                                <%= radio_button_tag(:public, "false", class:"form-control") %>
-                                                <%= label_tag(:true, "Make this trek public") %>
-                                                <%= radio_button_tag(:public, "true", class:"form-control") %>
-                                                </div>
-                                            <%= link_to "Cancel", "/treks/#{@trek.id}", class: "btn-theme btn btn-lg" %>  
-                                            <%= submit_tag 'Update trek', class:"btn btn-dark btn-lg" %>
-                                        </div>
-                                    </div>
-                                <% end %><!--leave comment form-->
-                            </div>
-                        </div>
-                        <div class="col-md-12 margin-btm20">
-                        <br>
-                        <br>
-                        <% if @trek.categories.length != 0 %>
-                            <h3>Remove categories</h3>
-                        </div>
-                        <div class="col-md-12 margin-btm20">
-                            <div class="form-box">
-                              <% @trek.trek_categories.all.each do |category| %>
-                                <p id="<%= category.id %>"><%= category.find_category %>
-                                  <button class="deleteCategory btn-danger btn">Delete</button>
-                                </p>
-                                    
-                              <% end %>
-                                        </div>
-                                    </div>
-                                <% end %><!--leave comment form-->
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="divied-40"></div>
+    <div class="row">
+      <div class="col-md-12 margin-btm20">
+        <h3>Edit trek details</h3>
+      </div>
+        <div class="col-md-12 margin-btm20">
+          <div class="form-box">
+            <%= form_tag "/treks/#{@trek.id}", method: :patch do %>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag :title %>
+                    <%= text_field_tag :title, @trek.title, class:"form-control" %>
+                  </div>
                 </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag :description %>
+                    <% if @trek.description %>
+                      <%= text_area_tag(:description, @trek.description, size: "60x6") %>
+                    <% else %>
+                      <%= text_area_tag(:description, nil, size: "60x6") %>
+                    <% end %>
+                  </div>
                 </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag(:false, "Make this trek private") %>
+                    <%= radio_button_tag(:public, "false", class:"form-control") %>
+                    <%= label_tag(:true, "Make this trek public") %>
+                    <%= radio_button_tag(:public, "true", class:"form-control") %>
+                  </div>
+                  <%= link_to "Cancel", "/treks/#{@trek.id}", class: "btn-theme btn btn-lg" %>  
+                  <%= submit_tag 'Update trek', class:"btn btn-dark btn-lg" %>
                 </div>
-
-
+              </div>
+            <% end %><!--leave comment form-->
+          </div>
+        </div>
+        <div class="col-md-12 margin-btm20">
+          <br>
+          <br>
+          <% if @trek.categories.length != 0 %>
+            <h3>Remove categories</h3>
+        </div>
+        <div class="col-md-12 margin-btm20">
+          <div class="form-box">
+            <% @trek.trek_categories.all.each do |category| %>
+              <p id="<%= category.id %>"><%= category.find_category %>
+                <button class="deleteCategory btn-danger btn">Delete</button>
+              </p>
+            <% end %>
+          </div>
+        </div>
+          <% end %><!--leave comment form-->
+      </div>
+    </div>
+  </div>
 </section>

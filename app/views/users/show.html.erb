@@ -1,39 +1,36 @@
 <section id="page-tree">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-5 col-sm-5">
-                  <h1><span data-container="body" data-toggle="popover" data-placement="right" data-content="<a href='/users/<%= @user.id %>/image'>Edit profile picture</a>" data-html="true"><%= image_tag @user.avatar.url(:thumb), class: "small-image" %></span><%= @user.name.titleize %>'s Treks</h1>
-              </div>
-            <div class="col-md-7 col-sm-7">
-                <ol class="breadcrumb pull-right hidden-xs">
-                    <li><%= @user.treks.count %> Treks</li>
-                    <li><%= @user.total_distance %> Total Miles</li>
-                </ol>
-            </div>
-          </div><!--row-->
-      </div><!--container-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-sm-5">
+        <h1><span data-container="body" data-toggle="popover" data-placement="right" data-content="<a href='/users/<%= @user.id %>/image'>Edit profile picture</a>" data-html="true"><%= image_tag @user.avatar.url(:thumb), class: "small-image" %></span><%= @user.name.titleize %>'s Treks</h1>
+      </div>
+      <div class="col-md-7 col-sm-7">
+        <ol class="breadcrumb pull-right hidden-xs">
+          <li><%= @user.treks.count %> Treks</li>
+          <li><%= @user.total_distance %> Total Miles</li>
+        </ol>
+      </div>
+    </div><!--row-->
+  </div><!--container-->
 </section><!--page-tree-->
-
 <section id="Portfolio-4col" class="padding-60">
-   <div id="grid">
-  <% if @user.treks.length != 0 %>
-  <% @user.treks.each do |trek| %>
-
-    <div class="portfolio-item mix design col-xs-12 col-sm-3 portfolio-no-margin">
-        <a href="/treks/<%= trek.id %>">
+  <div id="grid">
+    <% if @user.treks.length != 0 %>
+      <% @user.treks.each do |trek| %>
+        <div class="portfolio-item mix design col-xs-12 col-sm-3 portfolio-no-margin">
+          <a href="/treks/<%= trek.id %>">
             <div class="image-sec">
-                <%= image_tag trek.image.url, class: "img-responsive" %>
+              <%= image_tag trek.image.url, class: "img-responsive" %>
                 <div class="image-overlay">
                     <p><%= trek.title %>, <%= trek.in_miles %> miles</p>
                 </div>
-            </div> <!--image-->
-        </a>
-    </div>
-  <% end %>
-  <% else %>
-  <h3>No treks. Take a hike!</h3>
-  <% end %>
-</div><!--grid -->                           
+            </div></a>
+        </div>
+      <% end %>
+    <% else %>
+      <h3>No treks. Take a hike!</h3>
+    <% end %>
+  </div><!--grid -->                           
 </section>
 <div class="clearfix"></div>
 

@@ -1,42 +1,37 @@
-  <section class="padding-60">
+<section class="padding-60">
   <div class="divied-60"></div>
-        <div class="container">
-     <div class="divied-40"></div>
-                    <div class="row">
-                        <div class="col-md-12 margin-btm20">
-                            <h3>Edit your profile</h3>
-                        </div>
-                        <div class="col-md-12 margin-btm20">
-                            <div class="form-box">
-                                <%= form_tag "/users/#{@user.id}", method: :patch do %>
-                                    <div class="row">
-                                         <div class="col-sm-6">
-                                            <div class="form-group">
-                                               <%= label_tag :name %>
-                                               <%= text_field_tag :name, @user.name, class:"form-control" %>
-                                            </div>
-                                        </div>
-                                         <div class="col-sm-6">
-                                            <div class="form-group">
-                                         <%= label_tag :email %>
-                                         <%= text_field_tag :email, @user.email, class:"form-control" %>
-                                            </div>
-                                        </div>
-                                      
-                                        <div class="col-sm-12 text-right">
-                                            <%= link_to "Cancel", "/users/#{@user.id}", class: "btn-theme btn btn-lg" %>  
-                                            <%= submit_tag 'Update profile', class:"btn btn-dark btn-lg" %>
-                                        </div>
-                                    </div>
-                                <% end %><!--leave comment form-->
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="divied-40"></div>
+    <div class="row">
+      <div class="col-md-12 margin-btm20">
+        <h3>Edit your profile</h3>
+      </div>
+      <div class="col-md-12 margin-btm20">
+        <div class="form-box">
+          <%= form_tag "/users/#{@user.id}", method: :patch do %>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= label_tag :name %>
+                  <%= text_field_tag :name, @user.name, class:"form-control" %>
                 </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= label_tag :email %>
+                  <%= text_field_tag :email, @user.email, class:"form-control" %>
                 </div>
-                </div>
-
-
+              </div>
+              <div class="col-sm-12 text-right">
+                <%= link_to "Cancel", "/users/#{@user.id}", class: "btn-theme btn btn-lg" %>  
+                <%= submit_tag 'Update profile', class:"btn btn-dark btn-lg" %>
+              </div>
+            </div>
+          <% end %><!--leave comment form-->
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => 'treks#index'
   get '/treks' => 'treks#index'
-  get '/treks/new' => 'treks#new'
   post '/treks' => 'treks#create'
   get '/treks/:id' => 'treks#show'
   get '/treks/:id/edit' => 'treks#edit'
@@ -22,7 +21,6 @@ Rails.application.routes.draw do
   delete '/users' => 'users#destroy'
   post '/users/remote' => 'users#remote' 
 
-
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -32,4 +30,7 @@ Rails.application.routes.draw do
 
   post '/trek_categories' => 'trek_categories#create'
   delete '/trek_categories/:id' => 'trek_categories#destroy'
+
+  get '/:id/friends' => 'user_friends#show'
+  post '/friends' => 'user_friends#create'
 end

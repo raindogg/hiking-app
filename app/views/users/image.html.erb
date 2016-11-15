@@ -1,31 +1,25 @@
-  <section class="padding-60">
+<section class="padding-60">
   <div class="divied-60"></div>
-        <div class="container">
-     <div class="divied-40"></div>
-                    <div class="row">
-                        <div class="col-md-12 margin-btm20">
-                            <h3>Edit your profile picture</h3>
-                            <%= image_tag @user.avatar.url, class: "medium-image" %>
-                        </div>
-
-                        <div class="col-md-12 margin-btm20">
-                            <div class="form-box">
-                            <%= form_tag "/users/#{@user.id}/image", multipart: true, method: :patch do  %>
-                              <%= hidden_field_tag :user_id, @user.id %>
-                              <%= file_field_tag :avatar %>
-                            </div>
-                            <br>
-                              <div class="col-sm-12 text-left">
-                                  <%= link_to "Cancel", "/users/#{@user.id}", class: "btn-theme btn btn-lg" %>  
-                                  <%= submit_tag 'Update avatar', class:"btn btn-dark btn-lg" %>
-                              </div>
-                              
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-
-
+  <div class="container">
+    <div class="divied-40"></div>
+    <div class="row">
+      <div class="col-md-12 margin-btm20">
+        <h3>Edit your profile picture</h3>
+        <%= image_tag @user.avatar.url, class: "medium-image" %>
+      </div>
+      <div class="col-md-12 margin-btm20">
+        <div class="form-box">
+          <%= form_tag "/users/#{@user.id}/image", multipart: true, method: :patch do  %>
+            <%= hidden_field_tag :user_id, @user.id %>
+            <%= file_field_tag :avatar %>
+        </div>
+        <br>
+        <div class="col-sm-12 text-left">
+          <%= link_to "Cancel", "/users/#{@user.id}", class: "btn-theme btn btn-lg" %>  
+          <%= submit_tag 'Update avatar', class:"btn btn-dark btn-lg" %>
+        </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </section>
