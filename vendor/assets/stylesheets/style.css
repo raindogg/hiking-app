@@ -1226,6 +1226,9 @@ input[type="color"]:focus,
     top: 25px;
 }
 
+.no-margin {
+    margin: 2px;
+}
 
 
 

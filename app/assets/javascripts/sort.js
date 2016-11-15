@@ -13,8 +13,4 @@ $(document).ready( function() {
     $("#reveal-search").show();
     $("#search-area").hide();
   });
-
-  $(".clearCategories").on("click", function() {
-    window.location.assign('/treks');
-  });
 });
