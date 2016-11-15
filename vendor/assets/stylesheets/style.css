@@ -14,7 +14,6 @@
 body{ 
    font-family: 'Arimo', sans-serif;
    font-weight: 400;
-    background: #fff;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;	
     cursor:default;
@@ -570,9 +569,7 @@ h3.heading-progress span{
 /*==================== ========*/
 /*========= Sections =========*/
 /*============================*/
-#recent-work{
-    background: #fff;
-}
+
 #about-colored{
     background-color: rgb(255, 221, 0);
     background-attachment: scroll;
@@ -1229,6 +1226,7 @@ input[type="color"]:focus,
     position: relative;
     top: 25px;
 }
+
 
 
 

@@ -22,6 +22,9 @@
           <%  @categories.each do |category| %>
             <a href="treks?category=<%= category %>" class="btn-default btn"><%= category %></a>
           <% end %>
+          <% if @categorized %>
+            <button class="btn-warning btn" id="clearCategories">Clear filters</button>
+          <% end %>
           <br>
           <br>
           <p id="collapse" class="btn-danger btn">Collapse</p>

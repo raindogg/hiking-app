@@ -6,6 +6,7 @@ class TreksController < ApplicationController
     sort_length = params[:sort_length]
     search_term = params[:search_term]
     search_category = params[:category]
+    @categorized = false
 
     @treks = Trek.where(public: true).order(created_at: :desc)
     @list_title = "All Treks"
@@ -26,6 +27,7 @@ class TreksController < ApplicationController
       categories.each do |category|
         @treks << category.treks.all
       end
+      @categorized = true
       @treks.flatten!
       @list_title = "All #{search_category} Treks"
     end
