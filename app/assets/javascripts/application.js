@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery-1.10.2.min
-//= require jquery.easing.1.3.min
 //= require bootstrap.min
 //= require bootstrap-hover-dropdown.min
 //= require jquery.flexslider-min
